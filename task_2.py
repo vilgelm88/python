@@ -7,29 +7,21 @@
 from collections import deque
 
 n1 = input('Введите первое число: ')
-n1 = list(n1)
+n1 = deque(n1)
 n2 = input('Введите второе число: ')
-n2 = list(n2)
-
-#print(n1, n2)
+n2 = deque(n2)
 
 numbers = [str(i) for i in range(10)] + ['A', 'B', 'C', 'D', 'E', 'F']
 
 if len(n1) > len(n2):
     n1, n2 = n2, n1
-#print(numbers)
 
 j = -1
 k = 0
 
-n2 = deque(n2)
+
 n2.reverse()
-n2 = list(n2)
-
-n3 = []
-n3 = deque(n3)
-#print(n3)
-
+n3 = deque()
 
 for i in n2:
     a = numbers.index(i)
@@ -44,9 +36,8 @@ for i in n2:
         break
 delta = len(n2) - len(n1)
 
-print(delta)
-print('-delta:', [-delta])
-
+#print(delta)
+n2 = list(n2)
 
 if delta:
     for i in n2[-delta:]:
@@ -58,5 +49,5 @@ if delta:
 if k == 1:
     n3.appendleft('1')
 
-print(n3)
+print('Сумма чисел в шестнадцатеричной системе: ', list(n3))
 
